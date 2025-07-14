@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head><title>Resume Matcher</title></head>
+<body>
+  <h2>Upload Your Resume</h2>
+  <form method="post" enctype="multipart/form-data">
+    <input type="file" name="resume" required>
+    <button type="submit">Match</button>
+  </form>
+  <h3>Top Matching Jobs:</h3>
+  <ul>
+    {% for job in matches %}
+      <li><b>{{ job.title }}</b> at {{ job.company }}<br>{{ job.description[:150] }}...</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
